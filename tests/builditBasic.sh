@@ -27,4 +27,6 @@ cd ssl
 cp ../../basic/ssl/* .
 # build the libraries from proto buf files
 cd ..
-python -m grpc_tools.protoc -I../../protos --python_out=. --grpc_python_out=. ../../protos/openoffload.proto
+#python -m grpc_tools.protoc -I../../protos --python_out=. --grpc_python_out=. ../../protos/openoffload.proto
+python -m grpc_tools.protoc -I../../protos --python_out=python --grpc_python_out=python ../../protos/openoffload/v1beta1/openoffload.proto
+python -m grpc_tools.protoc -I../../protos --python_out=python --grpc_python_out=python ../../protos/openoffload/v1beta2/openoffload.proto

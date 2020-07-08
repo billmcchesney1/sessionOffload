@@ -25,8 +25,8 @@ import struct
 import grpc
 import google.protobuf.timestamp_pb2
 
-import openoffload_pb2
-import openoffload_pb2_grpc
+from openoffload.v1beta1 import openoffload_pb2
+from openoffload.v1beta1 import openoffload_pb2_grpc
 
 
 class ActivationServicer(openoffload_pb2_grpc.ActivationServicer):

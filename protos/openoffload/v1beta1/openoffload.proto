@@ -152,24 +152,24 @@ message statisticsRequestArgs{
   //  what other arguments make sense for retrieving or filtering streams 
 }
 enum InterfaceType{
-  _NONE = 0;
-  _SOFTWARE = 1;
-  _SMARTNIC = 2;
-  _NOS    = 3; 
+	_NONE = 0;
+	_SOFTWARE = 1;
+	_SMARTNIC = 2;
+	_NOS	  = 3; 
 }
 
 //enum RequiredCapabilities {
-//  _CAPABILITY1 = 0;
+//	_CAPABILITY1 = 0;
 //}
 
 enum ActivationStatusType {
-  _DEVICE_ACTIVATED = 0;
-  _DEVICE_DEACTIVATED = 1;
+	_DEVICE_ACTIVATED = 0;
+	_DEVICE_DEACTIVATED = 1;
 }
 
 enum RegistrationStatusType {
-  _DEVICE_REGISTERED = 0;
-  _DEVICE_DEREGISTERED = 1;
+	_DEVICE_REGISTERED = 0;
+	_DEVICE_DEREGISTERED = 1;
 }
 //
 // Empty message simulating void
@@ -177,64 +177,64 @@ message Empty {
 
 }
 service Activation {
-  //
-  // Discover implementations of OpenOffload
-  //
-  rpc GetAllImplementations(Empty) returns (ListOfDevices) {}
-  //
-  // Get the capabilities of an offload implementation
-  //
-  //rpc getCapabilities(ImplementationItem) returns (listOfCapabilities) {}
-  //
-  // Register and deregister the offload device
-  //
-  rpc activateOffload(DeviceDescription) returns (ActivationStatus) {}
-  rpc deactivateOffload(DeviceDescription) returns (ActivationStatus) {}
-  rpc registerOffloadDevice(DeviceDescription) returns (RegistrationStatus){}
-  rpc deregisterOffloadDevice(DeviceDescription) returns (RegistrationStatus){}
+	//
+	// Discover implementations of OpenOffload
+	//
+	rpc GetAllImplementations(Empty) returns (ListOfDevices) {}
+	//
+	// Get the capabilities of an offload implementation
+	//
+	//rpc getCapabilities(ImplementationItem) returns (listOfCapabilities) {}
+	//
+	// Register and deregister the offload device
+	//
+	rpc activateOffload(DeviceDescription) returns (ActivationStatus) {}
+	rpc deactivateOffload(DeviceDescription) returns (ActivationStatus) {}
+	rpc registerOffloadDevice(DeviceDescription) returns (RegistrationStatus){}
+	rpc deregisterOffloadDevice(DeviceDescription) returns (RegistrationStatus){}
 }
 //
 //
 message DeviceDescription {
-  string name = 1;
-  InterfaceType type = 2;
-  string description = 3;
-  int32  sessionCapacity = 4;
-  int32  sessionRate = 5;
+	string name = 1;
+	InterfaceType type = 2;
+	string description = 3;
+	int32  sessionCapacity = 4;
+	int32  sessionRate = 5;
 }
 
 //
 // List of Implementations available
 //
 message ListOfDevices {
-  repeated DeviceDescription devices = 1;
+	repeated DeviceDescription devices = 1;
 }
 //
 //
 message RegistrationStatus {
-  RegistrationStatusType status = 1;
+	RegistrationStatusType status = 1;
 }
 //
 // Status of registration de-registration
 // may want to expand to include reason for failures
 //
 message ActivationStatus {
-  ActivationStatusType status = 1;
-  DeviceDescription device = 2;
+	ActivationStatusType status = 1;
+	DeviceDescription device = 2;
 }
 //
 // NGFW can ask for a specific set of capabilities
 //
 message RequiredCapabilities {
-  int32 memoryAvailable = 1;
-  int32 sessionCapacity = 2;
-  int32 sessionRate = 3;
+	int32 memoryAvailable = 1;
+	int32 sessionCapacity = 2;
+	int32 sessionRate = 3;
 }
 //
 // Offload implementation must return list of capabilities
 //
 message listOfCapabilities {
-  int32 memoryAvailable = 1;
-  int32 sessionCapacity = 2;
-  int32 sessionRate = 3;
+	int32 memoryAvailable = 1;
+	int32 sessionCapacity = 2;
+	int32 sessionRate = 3;
 }

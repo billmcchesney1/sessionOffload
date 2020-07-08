@@ -24,8 +24,8 @@ import struct
 
 import grpc
 
-import openoffload_pb2
-import openoffload_pb2_grpc
+from openoffload.v1beta1 import openoffload_pb2
+from openoffload.v1beta1 import openoffload_pb2_grpc
 
 def session_addSession(stub):
     session=openoffload_pb2.sessionRequest()
